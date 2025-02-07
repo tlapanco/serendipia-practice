@@ -26,6 +26,17 @@ const itemsGroup = document.getElementById("items-group");
 const itemsList1 = document.getElementById("items-list-1");
 const itemsList2 = document.getElementById("items-list-2")
 
+//item modal
+const itemModal = document.getElementById("item-modal");
+const itemDetails = document.getElementById("item-details");
+const closeModalBtn = document.getElementById("close-modal-button");
+
+//item details
+const itemName = document.getElementById("item-name");
+const itemAge = document.getElementById("item-age");
+const itemGender = document.getElementById("item-gender");
+const itemJob = document.getElementById("item-job");
+const itemEducation = document.getElementById("item-education");
 
 const data = getCSVData("sample-data.csv");
 
@@ -36,6 +47,17 @@ data.then(data => {
 		li.classList.add("list-group-item", "grid");
 		li.textContent = row[0]; //row[0] contains full name
 
+		//listener on click to show item details
+		li.addEventListener("click", () => {
+			itemModal.style.display = "flex"; //to show modal
+			//setting item details
+			itemName.textContent = row[0];
+			itemAge.textContent = row[1];
+			itemGender.textContent = row[2];
+			itemJob.textContent = row[3];
+			itemEducation.textContent = row[4];
+		});
+
 		//checks if item goes in itemsLIst1 or itemsList2 
 		index % 2 === 0 ? itemsList1.appendChild(li) : itemsList2.appendChild(li);
 	})
@@ -45,3 +67,8 @@ data.then(data => {
 	itemsGroup.style.display = "flex";
 
 });
+
+//close modal
+closeModalBtn.addEventListener("click", () => {
+	itemModal.style.display = "none";	
+})

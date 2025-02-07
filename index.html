@@ -30,6 +30,19 @@
 			<ul id="items-list-2" class="list-group col-md"></ul>
 		</section>
 	</main>
+	<!-- Modal item detail -->
+	<section id="item-modal"
+		class="position-fixed top-50 start-50 translate-middle bg-black vh-100 vw-100 p-3 align-items-center justify-content-center z-30" style="display: none;">
+		<div id="item-details" class="bg-white p-4 rounded text-black">
+			<h2>Detalles</h2>
+			<p><strong>Nombre:</strong> <span id="item-name"></span></p>
+			<p><strong>Edad:</strong> <span id="item-age"></span></p>
+			<p><strong>Sexo:</strong> <span id="item-gender"></span></p>
+			<p><strong>Ocupación:</strong> <span id="item-job"></span></p>
+			<p><strong>Nivel de estudios:</strong> <span id="item-education"></span></p>
+			<button class="btn btn-danger" id="close-modal-button">Cerrar</button>
+		</div>
+	</section>
 	<!-- Footer -->
 	<footer class="d-flex align-items-center justify-content-center">
 		<h2>Creado por @tlapanco</h2>
