@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
 	<script defer src="app.js"></script>
 	<title>Práctica | Serendipia</title>
 </head>
+
 <body class="bg-secondary text-white">
 	<header class="container">
 		<h1 class="text-center">Listado de elementos desde un Csv</h1>
@@ -24,6 +26,8 @@
 		</div>
 		<!-- List of items group -->
 		<section id="items-group" class="row p-3 gap-4 container" style="display: none;">
+			<!-- Input for search -->
+			<input type="text" id="search-input" class="form-control my-3" placeholder="Buscar por nombre...">
 			<!-- List of items 1 -->
 			<ul id="items-list-1" class="list-group col-md "></ul>
 			<!-- List of items 2 -->
@@ -49,4 +53,5 @@
 	</footer>
 
 </body>
+
 </html>

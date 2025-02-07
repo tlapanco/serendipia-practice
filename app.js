@@ -20,11 +20,8 @@ const getCSVData = async (fileName) => {
 //Loader
 const loader = document.getElementById("loading-spinner");
 
-
-//items elements
-const itemsGroup = document.getElementById("items-group");
-const itemsList1 = document.getElementById("items-list-1");
-const itemsList2 = document.getElementById("items-list-2")
+//search input
+const inptSearch = document.getElementById("search-input");
 
 //item modal
 const itemModal = document.getElementById("item-modal");
@@ -38,6 +35,12 @@ const itemGender = document.getElementById("item-gender");
 const itemJob = document.getElementById("item-job");
 const itemEducation = document.getElementById("item-education");
 
+//items elements
+const itemsGroup = document.getElementById("items-group");
+const itemsList1 = document.getElementById("items-list-1");
+const itemsList2 = document.getElementById("items-list-2")
+
+
 const data = getCSVData("sample-data.csv");
 
 data.then(data => {
@@ -46,7 +49,6 @@ data.then(data => {
 		const li = document.createElement("li");
 		li.classList.add("list-group-item", "grid");
 		li.textContent = row[0]; //row[0] contains full name
-
 		//listener on click to show item details
 		li.addEventListener("click", () => {
 			itemModal.style.display = "flex"; //to show modal
@@ -68,7 +70,19 @@ data.then(data => {
 
 });
 
+//Adding a listener when user writes to show results
+inptSearch.addEventListener("input", () => {
+	const searchValue = inptSearch.value.toLowerCase();
+	//filter items
+	document.querySelectorAll(".list-group-item").forEach(item => {
+		item.style.display = item.textContent.toLowerCase().includes(searchValue) ? "block" : "none";//show or hide if item doesn't include searchvalue
+	});	
+});
+
 //close modal
 closeModalBtn.addEventListener("click", () => {
 	itemModal.style.display = "none";	
 })
+
+
+
